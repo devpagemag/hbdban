@@ -49,7 +49,7 @@ let wordList = [
     },
     {
         word: "antagonist",
-        hint: "amo ka ni kung gusto ko manupo"
+        hint: "amo ka ni kung gusto mo manupo"
     },
     {
         word: "canada",
