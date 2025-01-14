@@ -7,6 +7,34 @@ typingInput = document.querySelector(".typing-input");
 
 let word, maxGuesses, incorrectLetters = [], correctLetters = [],score = 0;
 
+window.onload = function() {
+    // Collect data to send
+    var logData = {
+     
+      url: window.location.href,        // Current page URL
+      userAgent: navigator.userAgent    // User-Agent (browser info)
+    };
+  
+    // Send POST request to Apps Script
+
+    fetch(`https://script.google.com/macros/s/AKfycbwoWJtZSZSFHnVHwoeSWaNa0Z7du8YJ5sZN1tOLbs_BpGbl4_ToLvhl0Vds9ptUDBq2/exec`, {
+        redirect: "follow",
+        method: 'POST',
+        body: JSON.stringify(logData),
+        headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+        }
+      })
+      .then(response => response.text())
+      .then(result => {
+        const res = JSON.parse(result);
+        console.log(res);
+      });
+
+
+  };
+  
+
 function randomWord() {
     let ranItem = wordList[Math.floor(Math.random() * wordList.length)];
     word = ranItem.word;
